@@ -1,0 +1,39 @@
+{
+    "name": "primitivo/brazilian-documents",
+    "description": "A package to help you to validade some brazilian documents",
+    "type": "library",
+    "require-dev": {
+        "pestphp/pest": "^2.6",
+        "laravel/pint": "^1.10",
+        "rector/rector": "^0.16.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matheus Santos",
+            "email": "fale_com_lopez@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Primitivo\\BrazilianDocuments\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
