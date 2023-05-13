@@ -10,14 +10,8 @@ class Validator
     {
         $cpf = preg_replace('/\D/', '', $cpf);
 
-        if (strlen($cpf) != 11) {
+        if (strlen($cpf) != 11 || str_repeat($cpf[0], 11) == $cpf) {
             return false;
-        }
-
-        for ($x = 0; $x < 10; $x++) {
-            if ($cpf == str_repeat((string)$x, 11)) {
-                return false;
-            }
         }
 
         for ($t = 9; $t < 11; $t++) {
@@ -30,6 +24,36 @@ class Validator
             $d = ((10 * $d) % 11) % 10;
 
             if ($cpf[$c] != $d) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static function isCNPJ(string $cnpj): bool
+    {
+        $cnpj = preg_replace('/\D/', '', $cnpj);
+
+        if (strlen($cnpj) != 14 || str_repeat($cnpj[0], 14) == $cnpj) {
+            return false;
+        }
+
+        for ($t = 12; $t < 14; $t++) {
+            $d = 0;
+            $c = 0;
+
+            for ($m = $t - 7; $m >= 2; $m--, $c++) {
+                $d += $cnpj[$c] * $m;
+            }
+
+            for ($m = 9; $m >= 2; $m--, $c++) {
+                $d += $cnpj[$c] * $m;
+            }
+
+            $d = ((10 * $d) % 11) % 10;
+
+            if ($cnpj[$c] != $d) {
                 return false;
             }
         }
