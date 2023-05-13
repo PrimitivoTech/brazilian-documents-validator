@@ -5,7 +5,8 @@
     "require-dev": {
         "pestphp/pest": "^2.6",
         "laravel/pint": "^1.10",
-        "rector/rector": "^0.16.0"
+        "rector/rector": "^0.16.0",
+        "symfony/var-dumper": "^6.2"
     },
     "license": "MIT",
     "authors": [
