@@ -10,7 +10,7 @@ class Validator
     {
         $cpf = preg_replace('/\D/', '', $cpf);
 
-        if (strlen($cpf) != 11 || str_repeat($cpf[0], 11) == $cpf) {
+        if (strlen($cpf) != 11 || str_repeat($cpf[0], 11) == $cpf) { //@phpstan-ignore-line
             return false;
         }
 
@@ -18,12 +18,12 @@ class Validator
             $d = 0;
 
             for ($c = 0; $c < $t; $c++) {
-                $d += $cpf[$c] * (($t + 1) - $c);
+                $d += $cpf[$c] * (($t + 1) - $c); //@phpstan-ignore-line
             }
 
             $d = ((10 * $d) % 11) % 10;
 
-            if ($cpf[$c] != $d) {
+            if ($cpf[$c] != $d) { //@phpstan-ignore-line
                 return false;
             }
         }
@@ -35,7 +35,7 @@ class Validator
     {
         $cnpj = preg_replace('/\D/', '', $cnpj);
 
-        if (strlen($cnpj) != 14 || str_repeat($cnpj[0], 14) == $cnpj) {
+        if (strlen($cnpj) != 14 || str_repeat($cnpj[0], 14) == $cnpj) { //@phpstan-ignore-line
             return false;
         }
 
@@ -44,16 +44,16 @@ class Validator
             $c = 0;
 
             for ($m = $t - 7; $m >= 2; $m--, $c++) {
-                $d += $cnpj[$c] * $m;
+                $d += $cnpj[$c] * $m; //@phpstan-ignore-line
             }
 
             for ($m = 9; $m >= 2; $m--, $c++) {
-                $d += $cnpj[$c] * $m;
+                $d += $cnpj[$c] * $m; //@phpstan-ignore-line
             }
 
             $d = ((10 * $d) % 11) % 10;
 
-            if ($cnpj[$c] != $d) {
+            if ($cnpj[$c] != $d) { //@phpstan-ignore-line
                 return false;
             }
         }

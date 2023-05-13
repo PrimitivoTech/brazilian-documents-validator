@@ -9,6 +9,7 @@ it('should ensure that `Validator::isCPF` returns false if CPF length is less th
     '597.865',
     '888.258.819',
     '523.876.586-0',
+    'a523.876.586-0',
 ]);
 
 it('should ensure that `Validator::isCPF` returns false if a combination of equal numbers is passed', function (string $cpf) {
@@ -36,7 +37,7 @@ it('should ensure that `Validator::isCPF` validate cpf number', function (string
     '523.876.586-04',
     '87782852676',
     '40804768250',
-    '16391815801'
+    '16391815801',
 ]);
 
 it('should ensure that `Validator::isCNPJ` returns false if CNPJ length is less than 14', function (string $cnpj) {
@@ -46,6 +47,7 @@ it('should ensure that `Validator::isCNPJ` returns false if CNPJ length is less 
     '59.786.514/',
     '88.825.880/0001',
     '52.387.658/0001-0',
+    'a2.387.658/0001-0',
 ]);
 
 it('should ensure that `Validator::isCNPJ` returns false if a combination of equal numbers is passed', function (string $cpf) {
